@@ -19,8 +19,8 @@ The program is a basic demonstration of using the `gohook` library to capture an
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/go-keystroke-listener.git
-   cd go-keystroke-listener
+   git clone https://github.com/araujo88/GoKeylogger.git
+   cd GoKeylogger
    ```
 
 2. **Install Dependencies:**
