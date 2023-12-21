@@ -1,7 +1,5 @@
 # GoKeylogger
 
-This repository contains a simple Go program that listens for keystrokes and prints them to the console. It uses the `gohook` library to capture keyboard events.
-
 ## Overview
 
 This repository contains two Go programs designed to work together for capturing and transmitting keystroke data over a UDP network. The first program (`server.go`) is a UDP server that listens for incoming keystroke data, and the second program (`client.go`) captures keystrokes and sends them to the UDP server.
