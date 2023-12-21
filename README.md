@@ -4,57 +4,48 @@ This repository contains a simple Go program that listens for keystrokes and pri
 
 ## Overview
 
-The program is a basic demonstration of using the `gohook` library to capture and handle keyboard events in Go. When a key is pressed, the program prints a human-readable representation of the key to the console. It specifically identifies some common special keys like Space, Enter, and Escape.
+This repository contains two Go programs designed to work together for capturing and transmitting keystroke data over a UDP network. The first program (`server.go`) is a UDP server that listens for incoming keystroke data, and the second program (`client.go`) captures keystrokes and sends them to the UDP server.
 
-## Getting Started
+## Files in the Repository
 
-### Prerequisites
+1. **server.go**: A UDP server program that listens on port 6969 and prints out any received keystroke data.
+2. **client.go**: A program that captures keystrokes and sends them to the UDP server running on `127.0.0.1:6969`.
 
-- Go (Version 1.13 or later)
-- Dependencies: `gohook` library
-- Libraries: libx11-dev libxcb1-dev libx11-xcb-dev libxkbcommon-x11-dev libxtst-dev
+## Requirements
 
-### Installation
+- Go programming language
+- `gohook` package (github.com/robotn/gohook) for capturing keystrokes
 
-1. **Clone the Repository:**
+## Installation
 
-   ```bash
-   git clone https://github.com/araujo88/GoKeylogger.git
-   cd GoKeylogger
-   ```
+1. Clone the repository.
+2. Ensure Go is installed on your system.
+3. Install the `gohook` package using `go get github.com/robotn/gohook`.
 
-2. **Install Dependencies:**
+## Running the Programs
 
-   ```bash
-   go get -u github.com/robotn/gohook
-   ```
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install libx11-dev libxcb1-dev libx11-xcb-dev libxkbcommon-x11-dev libxtst-dev
-   ```
-
-### Running the Program
-
-Execute the program by running:
-
-```bash
-go run main.go
-```
-
-The program will start and begin listening for keystrokes. Press various keys to see their representation printed to the console.
+1. **Start the server**: Run `go run server.go` to start the UDP server.
+2. **Start the client**: In a separate terminal, run `go run client.go` to start capturing keystrokes.
 
 ## Usage
 
-The program is straightforward to use:
+- The **client** program will listen for incoming UDP packets on port 6969. It will print out the received keystroke data to the console.
+- The **server** program captures keystrokes and sends the corresponding data to the UDP client. It prints the captured keys to the console and sends this data over the network.
+- Special keys like Space, Enter, and Escape are handled and sent as text (e.g., "Space", "Enter", "Escape").
 
-- Run the program.
-- Once running, it will listen for and output any key pressed.
-- Special keys (Space, Enter, Escape) are identified explicitly.
+## Notes
 
-## Customization
+- Ensure that both programs are running on the same network.
+- For demonstration purposes, the server is set to `127.0.0.1`, but you can modify this to suit your network configuration.
+- The programs are designed for educational and demonstration purposes. Be mindful of privacy and security implications when capturing and transmitting keystroke data.
 
-You can extend the switch-case in the `main.go` file to handle more special keys or add additional functionality as per your requirements.
+## Contributing
+
+Feel free to fork the repository, make changes, and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contributing
 
